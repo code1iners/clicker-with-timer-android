@@ -54,10 +54,6 @@ class ClickViewModel: ViewModel() {
         _valueScore.value = _valueScore.value?.plus(1)
     }
 
-    fun decrease() {
-        _valueScore.value = valueScore.value?.minus(1)
-    }
-
     fun onEventGameFinishComplete() {
         _eventGameFinish.value = false
     }

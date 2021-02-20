@@ -21,7 +21,8 @@
             android:layout_marginBottom="@dimen/spacing_m"
             android:text="@{viewModel.valueRemainingTimeString}"
             android:textColor="@color/primaryTextColor"
-            android:textSize="60sp"
+            android:textSize="40sp"
+            android:textAlignment="center"
             tools:text="Remaining Time"
             app:layout_constraintBottom_toTopOf="@id/score"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(viewModel.valueScore)}"
-            android:textSize="70sp"
+            android:textSize="50sp"
             android:textColor="@color/primaryTextColor"
             tools:text="Score"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,21 +52,11 @@
             app:layout_constraintTop_toBottomOf="@id/score">
 
             <Button
-                android:id="@+id/decrease"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.decrease()}"
-                android:text="@string/number_decrease" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/spacing_xs" />
-
-            <Button
                 android:id="@+id/increase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:padding="@dimen/spacing_m"
                 android:onClick="@{() -> viewModel.increase()}"
                 android:text="@string/number_increase" />
 

@@ -5,4 +5,6 @@
     <dimen name="spacing_m">16dp</dimen>
     <dimen name="spacing_l">24dp</dimen>
     <dimen name="spacing_xl">28dp</dimen>
+    <dimen name="spacing_2xl">48dp</dimen>
+    <dimen name="spacing_3xl">78dp</dimen>
 </resources>

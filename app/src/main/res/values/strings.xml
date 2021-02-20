@@ -3,7 +3,6 @@
 
     <string name="default_score">0</string>
     <string name="number_increase">Increase</string>
-    <string name="number_decrease">Decrease</string>
     <string name="default_remaining_time">00:00</string>
     <string name="start_button">START</string>
     <string name="value_result_score">Result Score: %d</string>
