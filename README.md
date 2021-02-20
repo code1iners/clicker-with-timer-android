@@ -1,10 +1,10 @@
 # Click any button and obtain the score.
-## [ ] Clicks app
+## Clicks app - Working
 
-* [O] Draw layout
-* [O] Added Observer
-* [ ] Create Timer
-* [ ] Implement timer feature with Clicker
+* Draw layout - Done
+* Added Observer - Done
+* Create Timer - Pending
+* Implement timer feature with Clicker - Pending
 
 ## Using by
 
