@@ -1,4 +1,4 @@
-package com.codeliner.clickerwithtimer.changes
+package com.codeliner.clickerwithtimer.clicks
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.databinding.FragmentChangeBinding
 
 
-class ChangeFragment : Fragment() {
+class ClickFragment : Fragment() {
 
     private val viewModel: ChangeViewModel by lazy {
         ViewModelProvider(this).get(ChangeViewModel::class.java)

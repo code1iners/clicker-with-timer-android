@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/changeFragment"
-        android:name="com.codeliner.clickerwithtimer.changes.ChangeFragment"
+        android:name="com.codeliner.clickerwithtimer.clicks.ClickFragment"
         android:label="ChangeFragment" />
 </navigation>

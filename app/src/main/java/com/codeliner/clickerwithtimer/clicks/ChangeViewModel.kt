@@ -1,4 +1,4 @@
-package com.codeliner.clickerwithtimer.changes
+package com.codeliner.clickerwithtimer.clicks
 
 import android.util.Log
 import androidx.lifecycle.LiveData
