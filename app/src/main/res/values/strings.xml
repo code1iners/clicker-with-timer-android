@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ClickerWithTimer</string>
+
+    <string name="number_default_value">0</string>
+    <string name="number_increase">Increase</string>
+    <string name="number_decrease">Decrease</string>
+</resources>
