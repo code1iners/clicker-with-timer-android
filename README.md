@@ -3,8 +3,11 @@
 
 * Draw layout - Done
 * Added Observer - Done
-* Create Timer - Pending
-* Implement timer feature with Clicker - Pending
+* Create Timer - Done
+* Implement timer feature with Clicker - Done
+* Display Result Score - Done
+* Back Process - Working
+* Up button in App bar - Pending
 
 ## Using by
 

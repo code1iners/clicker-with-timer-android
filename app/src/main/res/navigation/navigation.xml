@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-    app:startDestination="@id/changeFragment">
+    app:startDestination="@id/titleFragment">
 
     <fragment
-        android:id="@+id/changeFragment"
+        android:id="@+id/titleFragment"
+        android:name="com.codeliner.clickerwithtimer.titles.TitleFragment"
+        android:label="TitleFragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_clickFragment"
+            app:destination="@id/clickFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clickFragment"
         android:name="com.codeliner.clickerwithtimer.clicks.ClickFragment"
-        android:label="ChangeFragment" />
+        android:label="clickFragment" >
+        <action
+            android:id="@+id/action_clickFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.codeliner.clickerwithtimer.scores.ScoreFragment"
+        android:label="ScoreFragment" >
+        <argument
+            android:name="score"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_restart"
+            app:destination="@id/clickFragment" />
+    </fragment>
 </navigation>
