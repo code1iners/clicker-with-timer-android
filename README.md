@@ -7,6 +7,7 @@
 * Implement timer feature with Clicker - Done
 * Display Result Score - Done
 * Back Process - Done
+* Drawer layout - Done
 * Up button in App bar - Pending
 
 ## Using by
