@@ -8,7 +8,9 @@
 * Display Result Score - Done
 * Back Process - Done
 * Drawer layout - Done
-* Up button in App bar - Pending
+* Up button in App bar - Done
+* About Screen - Done
+* Upgrade UI (globally) - Working
 
 ## Using by
 
