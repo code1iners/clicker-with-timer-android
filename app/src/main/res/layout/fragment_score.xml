@@ -29,13 +29,25 @@
             android:gravity="center_horizontal" />
 
         <TextView
+            android:id="@+id/fragmentScore_resultScoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_label"
+            android:textSize="30sp"
+            android:textColor="@color/primaryTextColor"
+            android:layout_marginBottom="@dimen/spacing_m"
+            app:layout_constraintBottom_toTopOf="@+id/scoreResult"
+            app:layout_constraintEnd_toEndOf="@+id/scoreResult"
+            app:layout_constraintStart_toStartOf="@+id/scoreResult" />
+
+        <TextView
             android:id="@+id/scoreResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="36sp"
+            android:textSize="60sp"
             android:textColor="@color/primaryTextColor"
-            android:text="@{@string/value_result_score(viewModel.score)}"
-            tools:text="Result Score"
+            android:text="@{String.valueOf(viewModel.score)}"
+            tools:text="96"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
