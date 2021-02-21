@@ -41,13 +41,15 @@ class MainActivity :
         drawerLayout.addDrawerListener(this)
 
         navController = this.findNavController(R.id.navHostFragment)
-        NavigationUI.setupActionBarWithNavController(this, navController!!, drawerLayout)
-        drawerLayoutEnableOnlyStartDestination()
-        NavigationUI.setupWithNavController(binding.navDrawerView, navController!!)
+        navController?.let { nc ->
+            NavigationUI.setupActionBarWithNavController(this, nc, drawerLayout)
+            drawerLayoutEnableOnlyStartDestination(nc)
+            NavigationUI.setupWithNavController(binding.navDrawerView, nc)
+        }
     }
 
-    private fun drawerLayoutEnableOnlyStartDestination() {
-        navController?.addOnDestinationChangedListener { controller, destination, arguments ->
+    private fun drawerLayoutEnableOnlyStartDestination(nc: NavController) {
+        nc.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == controller.graph.startDestination) {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
             } else {
