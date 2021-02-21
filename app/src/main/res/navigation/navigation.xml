@@ -17,7 +17,9 @@
         android:label="clickFragment" >
         <action
             android:id="@+id/action_clickFragment_to_scoreFragment"
-            app:destination="@id/scoreFragment" />
+            app:destination="@id/scoreFragment"
+            app:popUpTo="@id/clickFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
@@ -28,7 +30,8 @@
             android:defaultValue="0"
             app:argType="integer" />
         <action
-            android:id="@+id/action_restart"
-            app:destination="@id/clickFragment" />
+            android:id="@+id/action_scoreFragment_to_clickFragment"
+            app:destination="@id/clickFragment"
+            app:popUpTo="@id/titleFragment" />
     </fragment>
 </navigation>
