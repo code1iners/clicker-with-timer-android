@@ -1,19 +1,16 @@
 package com.codeliner.clickerwithtimer.titles
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.codeliner.clickerwithtimer.MainViewModel
 import com.codeliner.clickerwithtimer.R
-import com.codeliner.clickerwithtimer.clicks.ClickViewModel
 import com.codeliner.clickerwithtimer.databinding.FragmentTitleBinding
 
 class TitleFragment: Fragment() {
