@@ -13,4 +13,8 @@
     <string name="nav_label_score">Result Score</string>
     <string name="nav_label_click">Go Click!</string>
     <string name="nav_label_title">Title Screen</string>
+    <string name="score_value">%d</string>
+    <string name="score_value_exam">54</string>
+    <string name="score">Score</string>
+    <string name="remaining_value_exam">00:10</string>
 </resources>

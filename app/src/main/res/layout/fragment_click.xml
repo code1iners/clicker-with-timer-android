@@ -15,51 +15,89 @@
         tools:context=".clicks.ClickFragment">
 
         <TextView
-            android:id="@+id/remainingTime"
+            android:id="@+id/fragmentClick_remainingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:text="Remaining Time"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentClick_remainingValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/fragmentClick_remainingValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_m"
+            android:gravity="center_horizontal"
             android:text="@{viewModel.valueRemainingTimeString}"
+            android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
             android:textSize="40sp"
-            android:textAlignment="center"
-            tools:text="Remaining Time"
-            app:layout_constraintBottom_toTopOf="@id/score"
+            app:layout_constraintBottom_toTopOf="@id/fragmentClick_scoreValue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal" />
+            tools:text="@string/remaining_value_exam" />
+
+        <ProgressBar
+            android:id="@+id/fragmentClick_scoreProgress"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle"
+            android:rotation="-90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="@{viewModel.valueScore}" />
 
         <TextView
-            android:id="@+id/score"
+            android:id="@+id/fragmentClick_scoreValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="@{String.valueOf(viewModel.valueScore)}"
-            android:textSize="50sp"
+            android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
-            tools:text="Score"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textSize="70sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragmentClick_scoreProgress"
+            app:layout_constraintEnd_toEndOf="@+id/fragmentClick_scoreProgress"
+            app:layout_constraintStart_toStartOf="@+id/fragmentClick_scoreProgress"
+            app:layout_constraintTop_toTopOf="@+id/fragmentClick_scoreProgress"
+            tools:text="@string/score_value_exam" />
+
+        <TextView
+            android:id="@+id/fragmentClick_scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/fragmentClick_scoreProgress"
+            app:layout_constraintStart_toStartOf="@+id/fragmentClick_scoreProgress"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentClick_scoreProgress" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <Button
                 android:id="@+id/increase"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:textSize="20sp"
+                android:onClick="@{() -> viewModel.increase()}"
                 android:padding="@dimen/spacing_m"
-                android:onClick="@{() -> viewModel.increase()}" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
