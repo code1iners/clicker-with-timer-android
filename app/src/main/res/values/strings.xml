@@ -7,7 +7,7 @@
     <string name="start_button">START</string>
     <string name="value_result_score">Result Score: %d</string>
     <string name="play_again_button">Play Again</string>
-    <string name="about_text">Clicker with Timer is a very simple gaming app.\n\nFirst, click the Start button on the title screen.\nSecond, click the increase button on the continue screen repeatedly.\nLast, Check your result score.\n\nDone! go and just enjoy this app.</string>
+    <string name="about_text">Clicker with Timer is a very simple gaming app.\n\nFirst, touch the Start button on the title screen.\n\nSecond, click the screen repeatedly.\n\nLast, Check your result score.\n\nDone! go and just enjoy this app.</string>
     <string name="about">About</string>
     <string name="nav_label_about">About This</string>
     <string name="nav_label_score">Result Score</string>
