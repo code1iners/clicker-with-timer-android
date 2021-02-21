@@ -11,10 +11,16 @@
     <string name="about">About</string>
     <string name="nav_label_about">About This</string>
     <string name="nav_label_score">Result Score</string>
-    <string name="nav_label_click">Go Click!</string>
+    <string name="nav_label_click">Touch this screen!</string>
     <string name="nav_label_title">Title Screen</string>
     <string name="score_value">%d</string>
     <string name="score_value_exam">54</string>
     <string name="score">Score</string>
     <string name="remaining_value_exam">00:10</string>
+    <string name="greeting_bad">Please try again</string>
+    <string name="greeting_normal">Not bad</string>
+    <string name="greeting_good">Very good</string>
+    <string name="greeting_great">You are click master</string>
+    <string name="greeting_perfect">There is no more enemy</string>
+    <string name="greeting_else">What happened?</string>
 </resources>

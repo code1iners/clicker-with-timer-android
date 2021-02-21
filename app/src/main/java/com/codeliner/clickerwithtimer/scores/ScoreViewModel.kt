@@ -1,19 +1,19 @@
 package com.codeliner.clickerwithtimer.scores
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.codeliner.clickerwithtimer.R
 
-class ScoreViewModel(resultScore: Int): ViewModel() {
+class ScoreViewModel(app: Application, resultScore: Int): AndroidViewModel(app) {
 
-    private val _resultScore = MutableLiveData<Int>()
-    val resultScore: LiveData<Int> get() = _resultScore
+    private val _score = MutableLiveData<Int>()
+    val score: LiveData<Int> get() = _score
 
     private val _eventPlayAgain = MutableLiveData<Boolean>()
     val eventPlayAgain: LiveData<Boolean> get() = _eventPlayAgain
 
     init {
-        _resultScore.value = resultScore
+        _score.value = resultScore
     }
 
     fun playAgain() {
@@ -22,5 +22,16 @@ class ScoreViewModel(resultScore: Int): ViewModel() {
 
     fun playAgainComplete() {
         _eventPlayAgain.value = false
+    }
+
+    val greeting = Transformations.map(score) {
+        app.applicationContext.getString(when {
+            it in 0..19 -> R.string.greeting_bad
+            it in 20..39 -> R.string.greeting_normal
+            it in 40..59 -> R.string.greeting_good
+            it in 60..79 -> R.string.greeting_great
+            it > 80 -> R.string.greeting_perfect
+            else -> R.string.greeting_else
+        })
     }
 }

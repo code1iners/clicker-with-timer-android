@@ -14,12 +14,27 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/fragmentScore_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.greeting}"
+            tools:text="@string/greeting_else"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textColor="@color/primaryTextColor"
+            android:layout_marginTop="@dimen/spacing_3xl"
+            app:layout_constraintEnd_toEndOf="@+id/scoreResult"
+            app:layout_constraintStart_toStartOf="@+id/scoreResult"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal" />
+
+        <TextView
             android:id="@+id/scoreResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="36sp"
             android:textColor="@color/primaryTextColor"
-            android:text="@{@string/value_result_score(viewModel.resultScore)}"
+            android:text="@{@string/value_result_score(viewModel.score)}"
             tools:text="Result Score"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,17 +43,21 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_3xl"
             android:onClick="@{() -> viewModel.playAgain()}"
             android:padding="@dimen/spacing_m"
             android:text="@string/play_again_button"
+            android:textColor="@color/secondaryTextColor"
             android:textSize="22sp"
+            android:layout_marginHorizontal="@dimen/spacing_s"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreResult" />
+            app:layout_constraintTop_toBottomOf="@+id/scoreResult"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

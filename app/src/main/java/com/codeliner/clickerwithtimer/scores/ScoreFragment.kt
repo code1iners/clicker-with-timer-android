@@ -21,12 +21,13 @@ class ScoreFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentScoreBinding.inflate(inflater)
+        val application = requireNotNull(activity).application
+        binding.lifecycleOwner = this
 
-        viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(requireArguments()).score)
+        viewModelFactory = ScoreViewModelFactory(application, ScoreFragmentArgs.fromBundle(requireArguments()).score)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ScoreViewModel::class.java)
 
         binding.viewModel = viewModel
-        binding.lifecycleOwner = this
 
         viewModel.eventPlayAgain.observe(viewLifecycleOwner, Observer { playAgain ->
             if (playAgain) {
