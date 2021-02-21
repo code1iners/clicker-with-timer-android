@@ -37,26 +37,13 @@ class MainActivity :
 
     private fun initDrawerLayout() {
         drawerLayout = binding.drawerLayout
+        drawerLayout.addDrawerListener(this)
 
         navController = this.findNavController(R.id.navHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController!!, drawerLayout)
         drawerLayoutEnableOnlyStartDestination()
         NavigationUI.setupWithNavController(binding.navDrawerView, navController!!)
 
-        drawerLayout.addDrawerListener(this)
-    }
-
-    private fun initObservers() {
-        // note. for exit app when clicked back key in title fragment
-        viewModel.isExit.observe(this, Observer { isExit ->
-            if (isExit) {
-                if (viewModel.drawerIsOpened.value == true) {
-                    drawerLayout.close()
-                } else {
-                    viewModel.exitComplete()
-                    finish()
-                }
-            }
-        })
     }
 
     private fun drawerLayoutEnableOnlyStartDestination() {
@@ -74,14 +61,21 @@ class MainActivity :
     }
 
     override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
-
-    override fun onDrawerOpened(drawerView: View) {
-        viewModel.onDrawerOpened()
-    }
-
-    override fun onDrawerClosed(drawerView: View) {
-        viewModel.onDrawerClosed()
-    }
-
+    override fun onDrawerOpened(drawerView: View) { viewModel.onDrawerOpened() }
+    override fun onDrawerClosed(drawerView: View) { viewModel.onDrawerClosed() }
     override fun onDrawerStateChanged(newState: Int) {}
+
+    private fun initObservers() {
+        // note. for exit app when clicked back key in title fragment
+        viewModel.isExit.observe(this, Observer { isExit ->
+            if (isExit) {
+                if (viewModel.drawerIsOpened.value == true) {
+                    drawerLayout.close()
+                } else {
+                    viewModel.exitComplete()
+                    finish()
+                }
+            }
+        })
+    }
 }
