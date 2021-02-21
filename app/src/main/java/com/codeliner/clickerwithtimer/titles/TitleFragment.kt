@@ -2,9 +2,7 @@ package com.codeliner.clickerwithtimer.titles
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -15,6 +13,7 @@ import com.codeliner.clickerwithtimer.MainViewModel
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.clicks.ClickViewModel
 import com.codeliner.clickerwithtimer.databinding.FragmentTitleBinding
+import timber.log.Timber
 
 class TitleFragment: Fragment() {
 
@@ -50,6 +49,18 @@ class TitleFragment: Fragment() {
             Navigation.createNavigateOnClickListener(TitleFragmentDirections.actionTitleFragmentToClickFragment())
         )
 
+        setHasOptionsMenu(true)
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Timber.e("onOptionsItemSelected: ${item}")
+        return true
     }
 }

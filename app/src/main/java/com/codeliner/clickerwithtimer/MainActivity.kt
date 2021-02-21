@@ -73,8 +73,7 @@ class MainActivity :
         return NavigationUI.navigateUp(navController!!, drawerLayout)
     }
 
-    override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-    }
+    override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
 
     override fun onDrawerOpened(drawerView: View) {
         viewModel.onDrawerOpened()
@@ -84,10 +83,5 @@ class MainActivity :
         viewModel.onDrawerClosed()
     }
 
-    override fun onDrawerStateChanged(newState: Int) {
-    }
-
-    companion object {
-        val TAG = MainActivity::class.simpleName
-    }
+    override fun onDrawerStateChanged(newState: Int) {}
 }
