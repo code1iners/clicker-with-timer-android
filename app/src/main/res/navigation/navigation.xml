@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/titleFragment"
         android:name="com.codeliner.clickerwithtimer.titles.TitleFragment"
-        android:label="Title"
+        android:label="@string/nav_label_title"
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_clickFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/clickFragment"
         android:name="com.codeliner.clickerwithtimer.clicks.ClickFragment"
-        android:label="clickFragment"
+        android:label="@string/nav_label_click"
         tools:layout="@layout/fragment_click">
         <action
             android:id="@+id/action_clickFragment_to_scoreFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/scoreFragment"
         android:name="com.codeliner.clickerwithtimer.scores.ScoreFragment"
-        android:label="ScoreFragment"
+        android:label="@string/nav_label_score"
         tools:layout="@layout/fragment_score">
         <argument
             android:name="score"
@@ -39,4 +39,9 @@
             app:destination="@id/clickFragment"
             app:popUpTo="@id/titleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.codeliner.clickerwithtimer.abouts.AboutFragment"
+        android:label="@string/nav_label_about"
+        tools:layout="@layout/fragment_about"/>
 </navigation>
