@@ -13,7 +13,6 @@ import com.codeliner.clickerwithtimer.MainViewModel
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.clicks.ClickViewModel
 import com.codeliner.clickerwithtimer.databinding.FragmentTitleBinding
-import timber.log.Timber
 
 class TitleFragment: Fragment() {
 
@@ -60,7 +59,6 @@ class TitleFragment: Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Timber.e("onOptionsItemSelected: ${item}")
-        return true
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.codeliner.clickerwithtimer.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity :
         AppCompatActivity(),
@@ -43,7 +44,6 @@ class MainActivity :
         NavigationUI.setupActionBarWithNavController(this, navController!!, drawerLayout)
         drawerLayoutEnableOnlyStartDestination()
         NavigationUI.setupWithNavController(binding.navDrawerView, navController!!)
-
     }
 
     private fun drawerLayoutEnableOnlyStartDestination() {
@@ -57,7 +57,8 @@ class MainActivity :
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController!!, drawerLayout)
+        val navController = this.findNavController(R.id.navHostFragment)
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
     override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}

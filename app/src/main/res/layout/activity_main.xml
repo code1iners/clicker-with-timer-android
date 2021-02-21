@@ -15,17 +15,20 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <fragment
-            android:id="@+id/navHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/navigation"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/navHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:navGraph="@navigation/navigation"
+                app:defaultNavHost="true" />
+
+        </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navDrawerView"
