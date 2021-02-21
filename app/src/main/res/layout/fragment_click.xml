@@ -27,7 +27,8 @@
             app:layout_constraintBottom_toTopOf="@id/score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/score"
@@ -44,21 +45,21 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_m"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/score">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <Button
                 android:id="@+id/increase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:textSize="20sp"
                 android:padding="@dimen/spacing_m"
-                android:onClick="@{() -> viewModel.increase()}"
-                android:text="@string/number_increase" />
+                android:onClick="@{() -> viewModel.increase()}" />
 
         </LinearLayout>
 
