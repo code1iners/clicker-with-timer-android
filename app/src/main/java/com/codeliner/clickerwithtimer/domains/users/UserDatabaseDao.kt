@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface UserDao {
+interface UserDatabaseDao {
     @Query("SELECT * FROM user")
     fun getAll(): List<User>
 
