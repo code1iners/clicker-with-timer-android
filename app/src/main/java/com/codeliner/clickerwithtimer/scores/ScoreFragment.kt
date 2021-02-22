@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.codeliner.clickerwithtimer.databinding.FragmentScoreBinding
+import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabase
 
 class ScoreFragment: Fragment() {
 
@@ -24,7 +25,13 @@ class ScoreFragment: Fragment() {
         val application = requireNotNull(activity).application
         binding.lifecycleOwner = this
 
-        viewModelFactory = ScoreViewModelFactory(application, ScoreFragmentArgs.fromBundle(requireArguments()).score)
+        // note. init score database source
+        val dataSourceDao = ScoreDatabase.getInstance(application).scoreDatabaseDao
+        viewModelFactory = ScoreViewModelFactory(
+                application,
+                ScoreFragmentArgs.fromBundle(requireArguments()).score,
+                dataSourceDao
+        )
         viewModel = ViewModelProvider(this, viewModelFactory).get(ScoreViewModel::class.java)
 
         binding.viewModel = viewModel

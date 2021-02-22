@@ -3,8 +3,13 @@ package com.codeliner.clickerwithtimer.scores
 import android.app.Application
 import androidx.lifecycle.*
 import com.codeliner.clickerwithtimer.R
+import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
 
-class ScoreViewModel(app: Application, resultScore: Int): AndroidViewModel(app) {
+class ScoreViewModel(
+        app: Application,
+        resultScore: Int,
+        dataSourceDao: ScoreDatabaseDao
+): AndroidViewModel(app) {
 
     private val _score = MutableLiveData<Int>()
     val score: LiveData<Int> get() = _score
