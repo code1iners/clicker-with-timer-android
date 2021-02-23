@@ -3,13 +3,19 @@ package com.codeliner.clickerwithtimer.scores
 import android.app.Application
 import androidx.lifecycle.*
 import com.codeliner.clickerwithtimer.R
+import com.codeliner.clickerwithtimer.domains.scores.Score
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
+import kotlinx.coroutines.*
 
 class ScoreViewModel(
         app: Application,
         resultScore: Int,
-        dataSourceDao: ScoreDatabaseDao
+        private val dataSourceDao: ScoreDatabaseDao
 ): AndroidViewModel(app) {
+
+    // note. coroutines
+    private val viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val _score = MutableLiveData<Int>()
     val score: LiveData<Int> get() = _score
@@ -19,6 +25,7 @@ class ScoreViewModel(
 
     init {
         _score.value = resultScore
+        onScoreSave(Score(score=resultScore))
     }
 
     fun playAgain() {
@@ -38,5 +45,11 @@ class ScoreViewModel(
             it > 80 -> R.string.greeting_perfect
             else -> R.string.greeting_else
         })
+    }
+
+    private fun onScoreSave(score: Score) {
+        uiScope.launch {
+            dataSourceDao.insert(score)
+        }
     }
 }
