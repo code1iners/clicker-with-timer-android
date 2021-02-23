@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.codeliner.clickerwithtimer.details.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragmentDetail_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.greeting}"
+            tools:text="@string/greeting_else"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textColor="@color/primaryTextColor"
+            android:layout_marginTop="@dimen/spacing_3xl"
+            app:layout_constraintEnd_toEndOf="@+id/fragmentDetail_scoreValue"
+            app:layout_constraintStart_toStartOf="@+id/fragmentDetail_scoreValue"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/fragmentDetail_scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/record_score_label"
+            android:textSize="30sp"
+            android:textColor="@color/primaryTextColor"
+            android:layout_marginBottom="@dimen/spacing_m"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentDetail_scoreValue"
+            app:layout_constraintEnd_toEndOf="@+id/fragmentDetail_scoreValue"
+            app:layout_constraintStart_toStartOf="@+id/fragmentDetail_scoreValue" />
+
+        <TextView
+            android:id="@+id/fragmentDetail_scoreValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:textColor="@color/primaryTextColor"
+            android:text="@{String.valueOf(viewModel.score.score)}"
+            tools:text="96"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_3xl"
+            android:onClick="@{() -> viewModel.onDelete()}"
+            android:padding="@dimen/spacing_m"
+            android:text="@string/delete"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="22sp"
+            android:layout_marginHorizontal="@dimen/spacing_s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentDetail_scoreValue"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

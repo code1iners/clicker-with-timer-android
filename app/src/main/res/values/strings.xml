@@ -25,4 +25,6 @@
     <string name="created">Created</string>
     <string name="clear">Clear</string>
     <string name="record_score">Record Score: %d</string>
+    <string name="record_score_label">Record Score</string>
+    <string name="delete">Delete</string>
 </resources>

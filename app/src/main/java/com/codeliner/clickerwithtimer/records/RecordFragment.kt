@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.codeliner.clickerwithtimer.scores.ScoreAdapter
 import com.codeliner.clickerwithtimer.databinding.FragmentRecordBinding
 import com.codeliner.clickerwithtimer.domains.scores.Score
@@ -52,17 +53,27 @@ class RecordFragment: Fragment()
         viewModel.scoreList.observe(viewLifecycleOwner, Observer { list ->
             scoreAdater.submitList(list)
         })
+
+        // note. for navigate to detail fragment
+        viewModel.navigateToScoreDetail.observe(viewLifecycleOwner, Observer { scoreId ->
+            scoreId?.let {
+                this.findNavController().navigate(
+                        RecordFragmentDirections.actionRecordFragmentToDetailFragment(scoreId)
+                )
+                viewModel.onScoreDetailNavigated()
+            }
+        })
     }
 
     override fun onClick(score: Score) {
-        Timber.i("onClick")
+        viewModel.onScoreClicked(score.id)
     }
 
     override fun onScore(score: Score) {
-        Timber.i("onScore")
+        viewModel.onScoreClicked(score.id)
     }
 
     override fun onCreated(score: Score) {
-        Timber.i("onCreated")
+        viewModel.onScoreClicked(score.id)
     }
 }

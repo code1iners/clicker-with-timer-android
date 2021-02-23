@@ -30,4 +30,15 @@ class RecordViewModel(
             dataSourceDao.clear()
         }
     }
+
+    private val _navigateToScoreDetail = MutableLiveData<Long>()
+    val navigateToScoreDetail: LiveData<Long> get() = _navigateToScoreDetail
+
+    fun onScoreClicked(id: Long) {
+        _navigateToScoreDetail.value = id
+    }
+
+    fun onScoreDetailNavigated() {
+        _navigateToScoreDetail.value = null
+    }
 }

@@ -18,6 +18,9 @@ interface ScoreDatabaseDao {
     @Query("DELETE FROM score_table")
     fun clear()
 
+    @Query("DELETE FROM score_table WHERE id = :scoreId")
+    fun deleteById(scoreId: Long)
+
     @Query("SELECT * FROM score_table ORDER BY id DESC")
     fun getAllScores(): LiveData<List<Score>>
 
