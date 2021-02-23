@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.codeliner.clickerwithtimer.scores.ScoreAdapter
 import com.codeliner.clickerwithtimer.databinding.FragmentRecordBinding
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabase
+import com.codeliner.clickerwithtimer.scores.ScoreListener
 import timber.log.Timber
 
 class RecordFragment: Fragment() {
@@ -41,7 +43,9 @@ class RecordFragment: Fragment() {
     }
 
     private fun initObservers() {
-        scoreAdater = ScoreAdapter()
+        scoreAdater = ScoreAdapter(ScoreListener { scoreId ->
+            Toast.makeText(context, "${scoreId} clicked", Toast.LENGTH_SHORT).show()
+        })
         binding.fragmentRecordScoreList.adapter = scoreAdater
 
         viewModel.scoreList.observe(viewLifecycleOwner, Observer { list ->

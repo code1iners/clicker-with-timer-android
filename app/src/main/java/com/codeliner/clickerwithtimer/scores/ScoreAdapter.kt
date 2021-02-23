@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codeliner.clickerwithtimer.databinding.ItemScoreBinding
 import com.codeliner.clickerwithtimer.domains.scores.Score
 
-class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallback()) {
+class ScoreAdapter(val clickListener: ScoreListener): ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -17,7 +17,7 @@ class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallbac
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         if (itemCount > 0) {
-            holder.bind(item)
+            holder.bind(item, clickListener)
         } else {
 
         }
@@ -25,8 +25,9 @@ class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallbac
 
     class ViewHolder private constructor(val binding: ItemScoreBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Score) {
+        fun bind(item: Score, clickListener: ScoreListener) {
             binding.score = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
         
@@ -48,4 +49,8 @@ class ScoreDiffCallback: DiffUtil.ItemCallback<Score>() {
     override fun areContentsTheSame(oldItem: Score, newItem: Score): Boolean {
         return oldItem == newItem
     }
+}
+
+class ScoreListener(val clickListener: (scoreId: Long) -> Unit) {
+    fun onClick(score: Score) = clickListener(score.id)
 }
