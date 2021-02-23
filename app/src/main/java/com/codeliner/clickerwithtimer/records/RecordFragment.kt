@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.codeliner.clickerwithtimer.adapters.ScoreAdapter
+import com.codeliner.clickerwithtimer.scores.ScoreAdapter
 import com.codeliner.clickerwithtimer.databinding.FragmentRecordBinding
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabase
 import timber.log.Timber

@@ -1,40 +1,37 @@
-package com.codeliner.clickerwithtimer.adapters
+package com.codeliner.clickerwithtimer.scores
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.codeliner.clickerwithtimer.R
+import com.codeliner.clickerwithtimer.databinding.ItemScoreBinding
 import com.codeliner.clickerwithtimer.domains.scores.Score
 
 class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: ScoreAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
     }
 
-    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var score: TextView = itemView.findViewById(R.id.itemScore_scoreValue)
-        var created: TextView = itemView.findViewById(R.id.itemScore_created)
-        
+    class ViewHolder private constructor(val binding: ItemScoreBinding): RecyclerView.ViewHolder(binding.root) {
+
         fun bind(item: Score) {
             val res = itemView.context.resources
-            score.text = item.score.toString()
-            created.text = item.created.toString()
+            binding.itemScoreScoreValue.text = item.score.toString()
+            binding.itemScoreCreated.text = item.created.toString()
         }
         
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_score, parent, false)
-                return ViewHolder(view)
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemScoreBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }

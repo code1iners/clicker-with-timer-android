@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/itemScore_scoreValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/score"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="score"
+            type="com.codeliner.clickerwithtimer.domains.scores.Score" />
+    </data>
 
-    <TextView
-        android:id="@+id/itemScore_created"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_m"
-        android:text="@string/created"
-        app:layout_constraintBottom_toBottomOf="@+id/itemScore_scoreValue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemScore_scoreValue"
-        app:layout_constraintTop_toTopOf="@+id/itemScore_scoreValue" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/itemScore_scoreValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemScore_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_m"
+            android:text="@string/created"
+            app:layout_constraintBottom_toBottomOf="@+id/itemScore_scoreValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemScore_scoreValue"
+            app:layout_constraintTop_toTopOf="@+id/itemScore_scoreValue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
