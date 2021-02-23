@@ -49,7 +49,13 @@ class ScoreViewModel(
 
     private fun onScoreSave(score: Score) {
         uiScope.launch {
-            dataSourceDao.insert(score)
+            insert(score)
+        }
+    }
+
+    private suspend fun insert(newScore: Score) {
+        withContext(Dispatchers.IO) {
+            dataSourceDao.insert(newScore)
         }
     }
 }

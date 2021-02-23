@@ -22,4 +22,5 @@
     <string name="greeting_great">You are click master</string>
     <string name="greeting_perfect">There is no more enemy</string>
     <string name="greeting_else">What happened?</string>
+    <string name="created">Created</string>
 </resources>
