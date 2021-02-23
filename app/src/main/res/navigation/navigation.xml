@@ -47,6 +47,6 @@
     <fragment
         android:id="@+id/recordFragment"
         android:name="com.codeliner.clickerwithtimer.records.RecordFragment"
-        android:label="RecordFragment"
+        android:label="My Records"
         tools:layout="@layout/fragment_record"/>
 </navigation>
