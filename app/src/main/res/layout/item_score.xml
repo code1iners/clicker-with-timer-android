@@ -11,17 +11,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="horizontal"
+        android:padding="@dimen/spacing_s"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:background="@drawable/border_radius_m"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/itemScore_greeting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/greeting_else"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_m"
+            app:scoreGreetingString="@{score}"
+            app:layout_constraintStart_toStartOf="@id/itemScore_guide_start"
+            app:layout_constraintEnd_toEndOf="@id/itemScore_guide_end"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/itemScore_scoreValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
             android:text="@string/score"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="@dimen/text_s"
+            app:scoreTestFormatted="@{score}"
+            app:layout_constraintStart_toStartOf="@id/itemScore_guide_start"
+            app:layout_constraintTop_toBottomOf="@id/itemScore_greeting"/>
 
         <TextView
             android:id="@+id/itemScore_created"
@@ -29,10 +47,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_m"
             android:text="@string/created"
-            app:layout_constraintBottom_toBottomOf="@+id/itemScore_scoreValue"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/text_s"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemScore_scoreValue"
-            app:layout_constraintTop_toTopOf="@+id/itemScore_scoreValue" />
+            app:layout_constraintTop_toTopOf="@id/itemScore_scoreValue"
+            app:scoreCreatedString="@{score}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemScore_guide_start"
+            app:layout_constraintGuide_begin="@dimen/spacing_m"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemScore_guide_end"
+            app:layout_constraintGuide_end="@dimen/spacing_m"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

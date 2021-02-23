@@ -22,9 +22,8 @@ class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallbac
     class ViewHolder private constructor(val binding: ItemScoreBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Score) {
-            val res = itemView.context.resources
-            binding.itemScoreScoreValue.text = item.score.toString()
-            binding.itemScoreCreated.text = item.created.toString()
+            binding.score = item
+            binding.executePendingBindings()
         }
         
         companion object {

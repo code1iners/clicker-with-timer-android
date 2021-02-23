@@ -23,4 +23,6 @@
     <string name="greeting_perfect">There is no more enemy</string>
     <string name="greeting_else">What happened?</string>
     <string name="created">Created</string>
+    <string name="clear">Clear</string>
+    <string name="record_score">Record Score: %d</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.domains.scores.Score
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
+import com.codeliner.clickerwithtimer.utils.getGreetingFormatted
 import kotlinx.coroutines.*
 
 class ScoreViewModel(
@@ -37,14 +38,7 @@ class ScoreViewModel(
     }
 
     val greeting = Transformations.map(score) {
-        app.applicationContext.getString(when {
-            it in 0..19 -> R.string.greeting_bad
-            it in 20..39 -> R.string.greeting_normal
-            it in 40..59 -> R.string.greeting_good
-            it in 60..79 -> R.string.greeting_great
-            it > 80 -> R.string.greeting_perfect
-            else -> R.string.greeting_else
-        })
+        getGreetingFormatted(app, it)
     }
 
     private fun onScoreSave(score: Score) {
