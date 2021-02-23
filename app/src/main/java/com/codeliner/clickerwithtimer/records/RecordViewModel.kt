@@ -6,10 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.codeliner.clickerwithtimer.domains.scores.Score
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class RecordViewModel(
         app: Application,
@@ -22,7 +19,15 @@ class RecordViewModel(
     private val _scoreList = dataSourceDao.getAllScores()
     val scoreList: LiveData<List<Score>> get() = _scoreList
 
-    init {
+    fun onClear() {
+        uiScope.launch {
+            clear()
+        }
+    }
 
+    private suspend fun clear() {
+        withContext(Dispatchers.IO) {
+            dataSourceDao.clear()
+        }
     }
 }

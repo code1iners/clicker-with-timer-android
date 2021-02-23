@@ -34,6 +34,7 @@
             android:textColor="@color/secondaryTextColor"
             android:textSize="20sp"
             android:paddingVertical="@dimen/spacing_s"
+            android:onClick="@{() -> viewModel.onClear()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
