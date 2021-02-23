@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.domains.scores.Score
 
-class ScoreAdapter: RecyclerView.Adapter<ScoreAdapter.ScoreViewHolder>() {
+class ScoreAdapter: RecyclerView.Adapter<ScoreAdapter.ViewHolder>() {
 
     var data = listOf<Score>()
         set(value) {
@@ -16,27 +16,32 @@ class ScoreAdapter: RecyclerView.Adapter<ScoreAdapter.ScoreViewHolder>() {
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreAdapter.ScoreViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_score, parent, false)
-        return ScoreViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreAdapter.ViewHolder {
+        return ViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: ScoreAdapter.ScoreViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ScoreAdapter.ViewHolder, position: Int) {
         val item = data[position]
-
-        holder.score?.text = item.score.toString()
-        holder.created?.text = item.created.toString()
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int = data.size
 
-    inner class ScoreViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        var score: TextView? = null
-        var created: TextView? = null
-
-        init {
-            score = view.findViewById(R.id.itemScore_scoreValue)
-            created = view.findViewById(R.id.itemScore_created)
+    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
+        var score: TextView = itemView.findViewById(R.id.itemScore_scoreValue)
+        var created: TextView = itemView.findViewById(R.id.itemScore_created)
+        
+        fun bind(item: Score) {
+            val res = itemView.context.resources
+            score.text = item.score.toString()
+            created.text = item.created.toString()
+        }
+        
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_score, parent, false)
+                return ViewHolder(view)
+            }
         }
     }
 }

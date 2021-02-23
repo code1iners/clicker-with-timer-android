@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/itemScore_scoreValue"
-        android:text="@string/score"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <View
-        android:layout_marginHorizontal="@dimen/spacing_m"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itemScore_created"
-        android:text="@string/created"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:text="@string/created"
+        app:layout_constraintBottom_toBottomOf="@+id/itemScore_scoreValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemScore_scoreValue"
+        app:layout_constraintTop_toTopOf="@+id/itemScore_scoreValue" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
