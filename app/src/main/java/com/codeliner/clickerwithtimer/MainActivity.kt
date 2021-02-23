@@ -2,6 +2,7 @@ package com.codeliner.clickerwithtimer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -11,10 +12,15 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.codeliner.clickerwithtimer.databinding.ActivityMainBinding
+import com.codeliner.clickerwithtimer.titles.TitleFragmentDirections
+import com.google.android.material.navigation.NavigationView
+import timber.log.Timber
 
 class MainActivity :
-        AppCompatActivity(),
-        DrawerLayout.DrawerListener {
+        AppCompatActivity()
+        , DrawerLayout.DrawerListener
+        , NavigationView.OnNavigationItemSelectedListener
+{
 
     val viewModel: MainViewModel by lazy {
         ViewModelProvider(this).get(MainViewModel::class.java)
@@ -32,6 +38,8 @@ class MainActivity :
 
         initDrawerLayout()
         initObservers()
+
+        binding.navDrawerView.setNavigationItemSelectedListener(this)
     }
 
     private fun initDrawerLayout() {
@@ -78,5 +86,14 @@ class MainActivity :
                 }
             }
         })
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_records -> {
+                navController?.navigate(R.id.recordFragment)
+            }
+        }
+        return true
     }
 }
