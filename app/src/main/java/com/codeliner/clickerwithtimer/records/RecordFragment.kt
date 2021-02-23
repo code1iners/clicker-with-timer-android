@@ -10,11 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.codeliner.clickerwithtimer.scores.ScoreAdapter
 import com.codeliner.clickerwithtimer.databinding.FragmentRecordBinding
+import com.codeliner.clickerwithtimer.domains.scores.Score
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabase
 import com.codeliner.clickerwithtimer.scores.ScoreListener
 import timber.log.Timber
 
-class RecordFragment: Fragment() {
+class RecordFragment: Fragment()
+    ,ScoreListener
+{
 
     private lateinit var binding: FragmentRecordBinding
     private lateinit var viewModel: RecordViewModel
@@ -43,14 +46,23 @@ class RecordFragment: Fragment() {
     }
 
     private fun initObservers() {
-        scoreAdater = ScoreAdapter(ScoreListener { scoreId ->
-            Toast.makeText(context, "${scoreId} clicked", Toast.LENGTH_SHORT).show()
-        })
+        scoreAdater = ScoreAdapter(this)
         binding.fragmentRecordScoreList.adapter = scoreAdater
 
         viewModel.scoreList.observe(viewLifecycleOwner, Observer { list ->
-            Timber.i("scoreListSize: ${list.size}")
             scoreAdater.submitList(list)
         })
+    }
+
+    override fun onClick(score: Score) {
+        Timber.i("onClick")
+    }
+
+    override fun onScore(score: Score) {
+        Timber.i("onScore")
+    }
+
+    override fun onCreated(score: Score) {
+        Timber.i("onCreated")
     }
 }

@@ -18,9 +18,9 @@
         android:layout_marginTop="@dimen/spacing_m"
         android:layout_marginHorizontal="@dimen/spacing_m"
         android:background="@drawable/border_radius_m"
+        android:onClick="@{() -> clickListener.onClick(score)}"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{() -> clickListener.onClick(score)}">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/itemScore_greeting"
@@ -41,6 +41,7 @@
             android:layout_marginTop="@dimen/spacing_xs"
             android:text="@string/score"
             android:textSize="@dimen/text_s"
+            android:onClick="@{() -> clickListener.onScore(score)}"
             app:scoreTestFormatted="@{score}"
             app:layout_constraintStart_toStartOf="@id/itemScore_guide_start"
             app:layout_constraintTop_toBottomOf="@id/itemScore_greeting"/>
@@ -52,6 +53,7 @@
             android:layout_marginStart="@dimen/spacing_m"
             android:text="@string/created"
             android:textSize="@dimen/text_s"
+            android:onClick="@{() -> clickListener.onCreated(score)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemScore_scoreValue"
             app:layout_constraintTop_toTopOf="@id/itemScore_scoreValue"
