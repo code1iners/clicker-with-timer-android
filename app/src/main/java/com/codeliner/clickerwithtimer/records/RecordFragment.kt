@@ -45,8 +45,8 @@ class RecordFragment: Fragment() {
         binding.fragmentRecordScoreList.adapter = scoreAdater
 
         viewModel.scoreList.observe(viewLifecycleOwner, Observer { list ->
-            Timber.i("scoreListSize: ${list.size}}")
-            scoreAdater.data = list
+            Timber.i("scoreListSize: ${list.size}")
+            scoreAdater.submitList(list)
         })
     }
 }

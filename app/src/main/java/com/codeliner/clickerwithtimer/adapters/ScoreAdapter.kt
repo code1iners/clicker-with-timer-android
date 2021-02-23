@@ -4,28 +4,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.domains.scores.Score
 
-class ScoreAdapter: RecyclerView.Adapter<ScoreAdapter.ViewHolder>() {
-
-    var data = listOf<Score>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+class ScoreAdapter: ListAdapter<Score, ScoreAdapter.ViewHolder>(ScoreDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreAdapter.ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ScoreAdapter.ViewHolder, position: Int) {
-        val item = data[position]
+        val item = getItem(position)
         holder.bind(item)
     }
-
-    override fun getItemCount(): Int = data.size
 
     class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
         var score: TextView = itemView.findViewById(R.id.itemScore_scoreValue)
@@ -43,5 +37,15 @@ class ScoreAdapter: RecyclerView.Adapter<ScoreAdapter.ViewHolder>() {
                 return ViewHolder(view)
             }
         }
+    }
+}
+
+class ScoreDiffCallback: DiffUtil.ItemCallback<Score>() {
+    override fun areItemsTheSame(oldItem: Score, newItem: Score): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Score, newItem: Score): Boolean {
+        return oldItem == newItem
     }
 }
