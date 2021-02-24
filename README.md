@@ -19,6 +19,7 @@
 * Upgrade UI (globally) - Done
 * With Room library - Done
 * Combine drawer nav with Action bar - Done
+* App name & icon - Done
 
 ## Using by
 

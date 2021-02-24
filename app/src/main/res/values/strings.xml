@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ClickerWithTimer</string>
+    <string name="app_name">Clicking</string>
 
     <string name="default_score">0</string>
     <string name="number_increase">Increase</string>
