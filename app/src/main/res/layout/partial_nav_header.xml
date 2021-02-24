@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/primaryDarkColor"
-    android:layout_width="match_parent"
-    android:layout_height="192dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/navDrawerHeaderText"
-        android:textSize="20sp"
-        android:textColor="@color/primaryTextColor"
-        android:text="Nav Drawer Header Text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <data>
+        <variable
+            name="score"
+            type="com.codeliner.clickerwithtimer.domains.scores.Score" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/primaryDarkColor"
+        android:layout_width="match_parent"
+        android:layout_height="192dp">
+
+        <LinearLayout
+            android:id="@+id/partialNavHeader_scoreContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/partialNavHeader_scoreLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:text="@string/latest_score_label"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_xl"/>
+
+            <TextView
+                android:id="@+id/navDrawerHeaderText"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:textSize="@dimen/text_2xl"
+                android:textColor="@color/secondaryTextColor"
+                android:text="@{String.valueOf(score.score)}"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                tools:text="Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

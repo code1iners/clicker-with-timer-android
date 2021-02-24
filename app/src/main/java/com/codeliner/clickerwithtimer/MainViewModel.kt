@@ -1,10 +1,20 @@
 package com.codeliner.clickerwithtimer
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.codeliner.clickerwithtimer.domains.scores.Score
+import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
 
-class MainViewModel : ViewModel() {
+class MainViewModel(
+        app: Application,
+        dataSourceDao: ScoreDatabaseDao
+) : AndroidViewModel(app) {
+
+    private val _scoreLatest = dataSourceDao.getScoreLatest()
+    val scoreLatest: LiveData<Score?> get() = _scoreLatest
 
     val isExit: LiveData<Boolean> get() = _isExit
     fun exitComplete() {
@@ -20,6 +30,7 @@ class MainViewModel : ViewModel() {
 
     fun onDrawerClosed() {
         _drawerIsOpened.value = false
+
     }
 
     init {

@@ -27,4 +27,5 @@
     <string name="record_score">Record Score: %d</string>
     <string name="record_score_label">Record Score</string>
     <string name="delete">Delete</string>
+    <string name="latest_score_label">Your Latest Score</string>
 </resources>

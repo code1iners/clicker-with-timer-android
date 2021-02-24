@@ -28,5 +28,5 @@ interface ScoreDatabaseDao {
     fun getScoreById(scoreId: Long): Score
 
     @Query("SELECT * FROM score_table ORDER BY id DESC LIMIT 1")
-    fun getScoreLatest(): Score
+    fun getScoreLatest(): LiveData<Score?>
 }

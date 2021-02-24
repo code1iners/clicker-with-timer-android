@@ -2,6 +2,7 @@ package com.codeliner.clickerwithtimer.scores
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.codeliner.clickerwithtimer.MainActivity
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.domains.scores.Score
 import com.codeliner.clickerwithtimer.domains.scores.ScoreDatabaseDao
