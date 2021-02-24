@@ -20,23 +20,12 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             tools:listitem="@layout/item_score"
+            android:paddingTop="@dimen/spacing_m"
+            android:paddingHorizontal="@dimen/spacing_m"
+            android:clipToPadding="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/fragmentRecord_clear"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/fragmentRecord_clear"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_s"
-            android:text="@string/clear"
-            android:textColor="@color/secondaryTextColor"
-            android:textSize="20sp"
-            android:paddingVertical="@dimen/spacing_s"
-            android:onClick="@{() -> viewModel.onClear()}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

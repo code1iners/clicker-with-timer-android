@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_titleFragment_to_clickFragment"
             app:destination="@id/clickFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_recordFragment2"
+            app:destination="@id/recordFragment" />
     </fragment>
     <fragment
         android:id="@+id/clickFragment"
@@ -56,7 +59,8 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.codeliner.clickerwithtimer.details.DetailFragment"
-        android:label="Detail" >
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="scoreId"
             app:argType="long"

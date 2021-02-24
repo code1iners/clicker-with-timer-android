@@ -15,8 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="horizontal"
         android:padding="@dimen/spacing_s"
-        android:layout_marginTop="@dimen/spacing_m"
-        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:layout_marginBottom="@dimen/spacing_m"
         android:background="@drawable/border_radius_m"
         android:onClick="@{() -> clickListener.onClick(score)}"
         android:layout_width="match_parent"

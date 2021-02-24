@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import com.codeliner.clickerwithtimer.MainViewModel
 import com.codeliner.clickerwithtimer.R
 import com.codeliner.clickerwithtimer.databinding.FragmentTitleBinding
+import timber.log.Timber
 
 class TitleFragment: Fragment() {
 
