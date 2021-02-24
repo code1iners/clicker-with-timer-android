@@ -65,8 +65,11 @@ class MainActivity :
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.navHostFragment)
-        return NavigationUI.navigateUp(navController, drawerLayout)
+        return try {
+            NavigationUI.navigateUp(navController!!, drawerLayout)
+        } catch (e: Exception) {
+            false
+        }
     }
 
     override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
@@ -91,7 +94,7 @@ class MainActivity :
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_records -> {
-                navController?.navigate(R.id.recordFragment)
+                navController?.navigate(TitleFragmentDirections.actionTitleFragmentToRecordFragment())
             }
         }
         return true

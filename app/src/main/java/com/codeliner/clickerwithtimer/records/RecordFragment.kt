@@ -48,7 +48,7 @@ class RecordFragment: Fragment()
                 viewModel.onClear()
             }
         }
-        return true
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
     private fun initViewModel() {

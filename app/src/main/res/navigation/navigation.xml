@@ -14,7 +14,7 @@
             android:id="@+id/action_titleFragment_to_clickFragment"
             app:destination="@id/clickFragment" />
         <action
-            android:id="@+id/action_titleFragment_to_recordFragment2"
+            android:id="@+id/action_titleFragment_to_recordFragment"
             app:destination="@id/recordFragment" />
     </fragment>
     <fragment
