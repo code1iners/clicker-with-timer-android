@@ -14,20 +14,22 @@ abstract class ScoreDatabase: RoomDatabase() {
         private var INSTANCE: ScoreDatabase? = null
 
         fun getInstance(context: Context): ScoreDatabase {
-            var instance = INSTANCE
+            synchronized(this) {
+                var instance = INSTANCE
 
-            if (instance == null) {
-                instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        ScoreDatabase::class.java,
-                        "score_history_database"
-                )
-                        .fallbackToDestructiveMigration()
-                        .build()
-                INSTANCE = instance
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                            context.applicationContext,
+                            ScoreDatabase::class.java,
+                            "score_history_database"
+                    )
+                            .fallbackToDestructiveMigration()
+                            .build()
+                    INSTANCE = instance
+                }
+
+                return instance
             }
-
-            return instance
         }
     }
 }
