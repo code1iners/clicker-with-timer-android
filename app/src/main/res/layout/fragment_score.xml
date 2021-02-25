@@ -17,16 +17,18 @@
             android:id="@+id/fragmentScore_greeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:gravity="center_horizontal"
             android:text="@{viewModel.greeting}"
-            tools:text="@string/greeting_else"
             android:textAlignment="center"
-            android:textSize="30sp"
             android:textColor="@color/primaryTextColor"
-            android:layout_marginTop="@dimen/spacing_3xl"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentScore_resultScoreLabel"
             app:layout_constraintEnd_toEndOf="@+id/scoreResult"
             app:layout_constraintStart_toStartOf="@+id/scoreResult"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/greeting_else" />
 
         <TextView
             android:id="@+id/fragmentScore_resultScoreLabel"
@@ -36,9 +38,10 @@
             android:textSize="30sp"
             android:textColor="@color/primaryTextColor"
             android:layout_marginBottom="@dimen/spacing_m"
-            app:layout_constraintBottom_toTopOf="@+id/scoreResult"
             app:layout_constraintEnd_toEndOf="@+id/scoreResult"
-            app:layout_constraintStart_toStartOf="@+id/scoreResult" />
+            app:layout_constraintStart_toStartOf="@+id/scoreResult"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentScore_greeting"
+            app:layout_constraintBottom_toTopOf="@+id/scoreResult"/>
 
         <TextView
             android:id="@+id/scoreResult"
